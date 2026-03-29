@@ -10,7 +10,9 @@ Route::get('/', function () {
 Route::get('/fix-database', function () {
     try {
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
-        return 'Migrations successful! <br><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
+        $tables = \Illuminate\Support\Facades\DB::select('SHOW TABLES');
+        $output = \Illuminate\Support\Facades\Artisan::output();
+        return "Migrations status: <br><pre>$output</pre><br>Current Tables: <br><pre>" . json_encode($tables, JSON_PRETTY_PRINT) . "</pre>";
     } catch (\Exception $e) {
         return 'Error running migrations: ' . $e->getMessage();
     }
