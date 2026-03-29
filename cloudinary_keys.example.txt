@@ -1,0 +1,9 @@
+# Cloudinary Credentials Guide
+
+As requested, keep your API Keys secure here. 
+You will eventually copy these exact values into your Laravel `.env` file once you create your Cloudinary account.
+
+CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME
+CLOUDINARY_API_KEY=your_api_key_here
+CLOUDINARY_API_SECRET=your_api_secret_here
+CLOUDINARY_CLOUD_NAME=your_cloud_name_here
